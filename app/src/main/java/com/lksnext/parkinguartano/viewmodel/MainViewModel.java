@@ -1,4 +1,4 @@
-package com.lksnext.parkingplantilla.viewmodel;
+package com.lksnext.parkinguartano.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 

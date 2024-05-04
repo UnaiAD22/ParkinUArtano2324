@@ -1,4 +1,4 @@
-package com.lksnext.parkingplantilla.view.activity;
+package com.lksnext.parkinguartano.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.lksnext.parkingplantilla.databinding.ActivityLoginBinding;
-import com.lksnext.parkingplantilla.viewmodel.LoginViewModel;
+import com.lksnext.parkinguartano.databinding.ActivityLoginBinding;
+import com.lksnext.parkinguartano.viewmodel.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.lksnext.parkingplantilla.domain;
+package com.lksnext.parkinguartano.domain;
 
 public class Reserva {
 

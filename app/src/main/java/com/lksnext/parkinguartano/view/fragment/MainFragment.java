@@ -1,4 +1,4 @@
-package com.lksnext.parkingplantilla.view.fragment;
+package com.lksnext.parkinguartano.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import com.lksnext.parkingplantilla.R;
+import com.lksnext.parkinguartano.R;
 
 
 public class MainFragment extends Fragment {
