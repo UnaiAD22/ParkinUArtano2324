@@ -54,15 +54,3 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.5.0'
 
 }
-
-plugins {
-  id "org.sonarqube" version "4.4.1.3373"
-}
-
-sonar {
-  properties {
-    property "sonar.projectKey", "UnaiAD22_ParkinUArtano2324"
-    property "sonar.organization", "unaiad22-parkingaulalks"
-    property "sonar.host.url", "https://sonarcloud.io"
-  }
-}
