@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.lksnext.parkinguartano.databinding.ActivityRegisterBinding;
 import com.lksnext.parkinguartano.viewmodel.RegisterViewModel;
 
@@ -23,4 +24,6 @@ public class RegisterActivity extends AppCompatActivity {
         //Asignamos el viewModel de register
         registerViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
     }
+
+
 }
