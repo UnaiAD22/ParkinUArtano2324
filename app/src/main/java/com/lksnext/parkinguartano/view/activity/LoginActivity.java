@@ -51,5 +51,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        String email = binding.emailText.getText().toString();
+        String password = binding.passwordText.getText().toString();
+        loginViewModel.loginUser(email, password);
     }
 }
