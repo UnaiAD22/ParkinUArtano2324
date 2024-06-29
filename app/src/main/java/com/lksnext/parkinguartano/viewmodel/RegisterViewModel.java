@@ -29,14 +29,14 @@ public class RegisterViewModel extends ViewModel {
             //En caso de que el login sea correcto, que se hace
             @Override
             public void onSuccess() {
-                registerMutable.setValue("Usuario registrado correctamente");
+                registerMutable.setValue("Usuario registrado correctamente: " + email + "\t" + password);
                 logged.setValue(Boolean.TRUE);
             }
 
             //En caso de que el login sea incorrecto, que se hace
             @Override
             public void onFailure() {
-                //TODO
+                registerMutable.setValue("Error al registrar usuario: " + email + "\t" + password);
                 logged.setValue(Boolean.FALSE);
             }
         });

@@ -1,6 +1,7 @@
 package com.lksnext.parkinguartano.data;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.lksnext.parkinguartano.databinding.ActivityRegisterBinding;
 import com.lksnext.parkinguartano.domain.Callback;
 
@@ -9,6 +10,8 @@ public class DataRepository {
     private static DataRepository instance;
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+    private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     private DataRepository(){
 
@@ -29,12 +32,22 @@ public class DataRepository {
             mAuth.signInWithEmailAndPassword(email, pass);
             callback.onSuccess();
         } catch (Exception e){
+            System.out.println("Error: " + e.getMessage());
             callback.onFailure(); //String error, String message
+            System.out.println("MAL");
         }
     }
 
     public void register(String email, String password, Callback callback){
-        mAuth.createUserWithEmailAndPassword(email, password);
+        try {
+            //Realizar petición
+            mAuth.createUserWithEmailAndPassword(email, password);
+            callback.onSuccess();
+        } catch (Exception e){
+            System.out.println("Error: " + e.getMessage());
+            callback.onFailure(); //String error, String message
+            System.out.println("MAL");
+        }
     }
 
 }

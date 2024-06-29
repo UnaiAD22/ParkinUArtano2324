@@ -1,5 +1,6 @@
 package com.lksnext.parkinguartano.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,8 +24,14 @@ public class RegisterActivity extends AppCompatActivity {
         //Asignamos el viewModel de register
         registerViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
 
-        String email = binding.emailText.getText().toString();
-        String password = binding.passwordText.getText().toString();
-        registerViewModel.register(email, password);
+        //registerViewModel.register(email, password);
+        binding.btnRegister.setOnClickListener( v -> {
+            String email = binding.emailText.getText().toString();
+            String password = binding.passwordText.getText().toString();
+            System.out.println("Email: " + email + " Password: " + password);
+            registerViewModel.register(email, password);
+            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
     }
 }
