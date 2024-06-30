@@ -4,6 +4,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.lksnext.parkinguartano.databinding.ActivityRegisterBinding;
 import com.lksnext.parkinguartano.domain.Callback;
+import com.lksnext.parkinguartano.domain.UserCount;
+import com.lksnext.parkinguartano.domain.Usuario;
 
 public class DataRepository {
 
@@ -26,9 +28,11 @@ public class DataRepository {
     }
 
     //Petición del login.
-    public void login(String email, String pass, Callback callback){
+    public Usuario login(String email, String pass, Callback callback){
         try {
             //Realizar petición
+            Usuario user = new Usuario(email, email, pass);
+            UserCount.setUsuario(user);
             mAuth.signInWithEmailAndPassword(email, pass);
             callback.onSuccess();
         } catch (Exception e){
@@ -36,11 +40,17 @@ public class DataRepository {
             callback.onFailure(); //String error, String message
             System.out.println("MAL");
         }
+
+        return  UserCount.getUsuario();
     }
 
-    public void register(String email, String password, Callback callback){
+    public Usuario register(String email, String password, Callback callback){
         try {
+            String username = email.substring(0, email.indexOf('@'));
             //Realizar petición
+            Usuario user = new Usuario(username, email, password);
+            UserCount.setUsuario(user);
+
             mAuth.createUserWithEmailAndPassword(email, password);
             callback.onSuccess();
         } catch (Exception e){
@@ -48,6 +58,8 @@ public class DataRepository {
             callback.onFailure(); //String error, String message
             System.out.println("MAL");
         }
+
+        return UserCount.getUsuario();
     }
 
 }

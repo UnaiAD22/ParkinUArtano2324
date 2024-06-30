@@ -3,7 +3,31 @@
 
     <string name="selectDate">Selecciona una fecha</string>
 
+    <string name="historial">Historial de reservas</string>
+
+    <string name="perfil">Perfil de usuario</string>
+
+    <string name="selectHour">Selección de horas</string>
+    <string name="selectHourI">Hora inicial</string>
+    <string name="selectHourF">Hora finalizada</string>
+
+    <string name="normal_car">Zona de coche normal</string>
+    <string name="electric_car">Zona de coche eléctrico</string>
+    <string name="handicapped_car">Zona de minusválido</string>
+
+    <string-array name="car_types">
+        <item>Normal</item>
+        <item>Eléctrico</item>
+        <item>Minusválido</item>
+    </string-array>
+
+    <string name="selectTypeParking">Selecciona el tipo del coche</string>
+
     <string name="fragment_main">Main</string>
+    <string name="fragment_history">History</string>
+    <string name="fragment_user">User</string>
+    <string name="fragment_hour">Seleccionar horas</string>
+    <string name="fragment_parking_type_choose">Selecciona el tipo del coche</string>
     <string name="fragment_step1">Step 1</string>
     <string name="fragment_step2">Step 2</string>
     <string name="fragment_end">End</string>

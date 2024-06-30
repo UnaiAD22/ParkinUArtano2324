@@ -2,11 +2,13 @@ package com.lksnext.parkinguartano.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.lksnext.parkinguartano.databinding.ActivityLoginBinding;
+import com.lksnext.parkinguartano.domain.Usuario;
 import com.lksnext.parkinguartano.viewmodel.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity {
@@ -36,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.createAccount.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
+            finish();
         });
 
         //Observamos la variable logged, la cual nos informara cuando el usuario intente hacer login y se
@@ -48,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     //Login incorrecto
+                    Log.d("LLLLL", "Login incorrecto");
                 }
             }
         });

@@ -16,20 +16,22 @@ public class LoginViewModel extends ViewModel {
         return logged;
     }
 
+    public MutableLiveData<String> loginMutable = new MutableLiveData<>();
+
     public void loginUser(String email, String password) {
         //Clase para comprobar si los datos de inicio de sesión son correctos o no
         DataRepository.getInstance().login(email, password, new Callback() {
             //En caso de que el login sea correcto, que se hace
             @Override
             public void onSuccess() {
-                //TODO
+                loginMutable.setValue("Usuario logeado correctamente: " + email + "\t" + password);
                 logged.setValue(Boolean.TRUE);
             }
 
-            //En caso de que el login sea incorrecto, que se hace
+            //En caso de que el login sea incorrecto
             @Override
             public void onFailure() {
-                //TODO
+                loginMutable.setValue("Error al logear usuario: " + email + "\t" + password);
                 logged.setValue(Boolean.FALSE);
             }
         });

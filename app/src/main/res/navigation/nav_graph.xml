@@ -10,5 +10,46 @@
         android:name="com.lksnext.parkinguartano.view.fragment.MainFragment"
         android:label="@string/fragment_main"
         tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/main_to_hora_fragment"
+            app:destination="@id/horaFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/horaFragment"
+        android:name="com.lksnext.parkinguartano.view.fragment.HoraFragment"
+        android:label="@string/fragment_hour"
+        tools:layout="@layout/fragment_hora" >
+        <action
+            android:id="@+id/hora_to_parkingChoose_fragment"
+            app:destination="@id/parkingChooseFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/parkingChooseFragment"
+        android:name="com.lksnext.parkinguartano.view.fragment.ParkingChooseFragment"
+        android:label="@string/fragment_parking_type_choose"
+        tools:layout="@layout/fragment_parking_choose" >
+        <action
+            android:id="@+id/parkingChoose_to_parking"
+            app:destination="@id/parkingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/parkingFragment"
+        android:name="com.lksnext.parkinguartano.view.fragment.ParkingFragment"
+        android:label="@string/fragment_parking_type_choose"
+        tools:layout="@layout/fragment_parking_choose" />
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.lksnext.parkinguartano.view.fragment.HistoryFragment"
+        android:label="@string/fragment_history"
+        tools:layout="@layout/fragment_parking_choose" />
+
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.lksnext.parkinguartano.view.fragment.UserFragment"
+        android:label="@string/fragment_user"
+        tools:layout="@layout/fragment_parking_choose" />
 </navigation>
