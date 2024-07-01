@@ -62,7 +62,6 @@ public class HoraFragment extends Fragment {
         timePickerI.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-                // Habilitar el botón cuando se seleccione una hora
             }
         });
 
@@ -79,8 +78,6 @@ public class HoraFragment extends Fragment {
             public void onClick(View v) {
                 int hourI = timePickerI.getCurrentHour();
                 int minuteI = timePickerI.getCurrentMinute();
-                // Aquí puedes manejar la hora seleccionada
-                //Toast.makeText(getContext(), "Hora seleccionada: " + hourI + ":" + minuteI, Toast.LENGTH_SHORT).show();
 
                 String formattedTimeI = String.format("%d:%02d", hourI, minuteI);
 
@@ -98,8 +95,6 @@ public class HoraFragment extends Fragment {
                 navController.navigate(R.id.parkingChooseFragment);
             }
         });
-
-        //return view;
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

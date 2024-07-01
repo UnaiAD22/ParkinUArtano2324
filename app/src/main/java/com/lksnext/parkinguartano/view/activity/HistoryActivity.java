@@ -1,27 +1,42 @@
 package com.lksnext.parkinguartano.view.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.lksnext.parkinguartano.R;
 import com.lksnext.parkinguartano.databinding.ActivityMainBinding;
+import com.lksnext.parkinguartano.utils.HistoryAdapter;
+import com.lksnext.parkinguartano.utils.HistoryItem;
+import com.lksnext.parkinguartano.viewmodel.HistoryViewModel;
+
+import java.util.List;
 
 public class HistoryActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     ActivityMainBinding binding;
     NavController navController;
-    AppBarConfiguration appBarConfiguration;
 
+    private HistoryViewModel historyViewModel;
+    private RecyclerView recyclerView;
+    private HistoryAdapter historyAdapter;
+
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_history);
 
         //Asignamos la vista/interfaz main (layout)
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -51,10 +66,23 @@ public class HistoryActivity extends AppCompatActivity {
             }
             return false;
         });
-    }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
+        recyclerView = findViewById(R.id.recycler_view);; // Asegúrate que este es el ID correcto de RecyclerView en activity_main.xml
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
+
+        historyViewModel.getHistoryItemList().observe(this, new Observer<List<HistoryItem>>() {
+            @Override
+            public void onChanged(List<HistoryItem> historyItems) {
+                if (historyItems != null && !historyItems.isEmpty()) {
+                    Log.d("HistoryActivity", "Data received: " + historyItems.size() + " items");
+                    historyAdapter = new HistoryAdapter(historyItems);
+                    recyclerView.setAdapter(historyAdapter);
+                } else {
+                    Log.d("HistoryActivity", "No data received");
+                }
+            }
+        });
     }
 }

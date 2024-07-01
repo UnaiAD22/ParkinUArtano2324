@@ -1,6 +1,7 @@
 package com.lksnext.parkinguartano.view.fragment;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.lksnext.parkinguartano.R;
+import com.lksnext.parkinguartano.domain.Reserva;
+import com.lksnext.parkinguartano.view.activity.HistoryActivity;
 
 public class ParkingFragment extends Fragment {
 
@@ -30,6 +33,8 @@ public class ParkingFragment extends Fragment {
     int buttonHeightPx;
 
     private ParkingFragment.OnFragmentIdListener mListener;
+
+    private Reserva reserva;
 
     public interface OnFragmentIdListener {
         void onFragmentIdListener(int id);
@@ -72,7 +77,6 @@ public class ParkingFragment extends Fragment {
             }
         });
 
-        // Inicializar con el primer tipo de coche
         updateParkingSpots(carTypeSpinner.getSelectedItem().toString(), root);
         Toast.makeText(getContext(), "Reserva realizada con éxito", Toast.LENGTH_SHORT).show();
 

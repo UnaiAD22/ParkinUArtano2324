@@ -3,10 +3,17 @@ package com.lksnext.parkinguartano.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.lksnext.parkinguartano.R;
 import com.lksnext.parkinguartano.databinding.ActivityLoginBinding;
 import com.lksnext.parkinguartano.domain.Usuario;
 import com.lksnext.parkinguartano.viewmodel.LoginViewModel;
@@ -15,6 +22,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
     private LoginViewModel loginViewModel;
+
+    private LinearLayout cardContainer;
+
+    private int cardCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,5 +70,15 @@ public class LoginActivity extends AppCompatActivity {
         String email = binding.emailText.getText().toString();
         String password = binding.passwordText.getText().toString();
         loginViewModel.loginUser(email, password);
+
+        cardContainer = findViewById(R.id.recycler_view);
+    }
+
+    public void agregarTarjeta(View view) {
+        int numeroTarjetas = 2;
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("NUMERO_TARJETAS", numeroTarjetas);
+        startActivity(intent);
     }
 }

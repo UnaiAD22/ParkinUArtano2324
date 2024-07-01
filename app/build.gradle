@@ -42,6 +42,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    viewBinding {
+        enabled = true
+    }
+
     namespace "com.lksnext.parkinguartano"
 }
 

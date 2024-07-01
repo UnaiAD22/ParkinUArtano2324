@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ParkingUArtano</string>
 
-    <string name="selectDate">Selecciona una fecha</string>
+    <string name="selectDate">Selecciona una fecha para empezar a reservar</string>
 
     <string name="historial">Historial de reservas</string>
 

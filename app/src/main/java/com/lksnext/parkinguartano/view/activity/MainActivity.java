@@ -107,9 +107,9 @@ public class MainActivity extends AppCompatActivity implements
             // Todos los datos están disponibles, crea el objeto
             Usuario user = UserCount.getUsuario();
 
-            String[] dates = horaSeleccionada.split(" - ");
-            String inicioHora = dates[0];
-            String finHora = dates[1];
+            String[] horas = horaSeleccionada.split(" - ");
+            String inicioHora = horas[0];
+            String finHora = horas[1];
 
             Hora hora = null;
 
