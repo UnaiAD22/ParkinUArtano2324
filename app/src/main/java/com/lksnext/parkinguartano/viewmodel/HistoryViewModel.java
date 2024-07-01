@@ -11,18 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryViewModel extends ViewModel {
-    private MutableLiveData<List<HistoryItem>> historyItemList;
-
-    public HistoryViewModel() {
-        historyItemList = new MutableLiveData<>();
-        loadHistoryItems();
-    }
+    private MutableLiveData<List<HistoryItem>> historyItemList = new MutableLiveData<>();
 
     public LiveData<List<HistoryItem>> getHistoryItemList() {
         return historyItemList;
     }
 
-    private void loadHistoryItems() {
+    public void loadHistoryItems() {
         List<HistoryItem> items = new ArrayList<>();
         items.add(new HistoryItem(R.drawable.ic_user, "Usuario 1", R.drawable.ic_calendar, "01/07/2024", R.drawable.ic_clock, "11:00 - 23:30", R.drawable.ic_car_normal, "Normal", R.drawable.ic_location, "1"));
         items.add(new HistoryItem(R.drawable.ic_user, "Usuario 2", R.drawable.ic_calendar, "29/06/2024", R.drawable.ic_clock, "11:00 - 23:30", R.drawable.ic_car_normal, "Normal", R.drawable.ic_location, "105"));

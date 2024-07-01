@@ -115,4 +115,11 @@
             android:textSize="16sp" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.dp"
+        android:layout_marginVertical="12dp"
+        android:background="@color/black"
+        />
+
 </LinearLayout>

@@ -36,7 +36,6 @@ public class HistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_history);
 
         //Asignamos la vista/interfaz main (layout)
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -67,16 +66,18 @@ public class HistoryActivity extends AppCompatActivity {
             return false;
         });
 
-        recyclerView = findViewById(R.id.recycler_view);; // Asegúrate que este es el ID correcto de RecyclerView en activity_main.xml
+        recyclerView = findViewById(R.id.recycler_view);// Asegúrate que este es el ID correcto de RecyclerView en activity_main.xml
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
+        historyViewModel.loadHistoryItems();
 
         historyViewModel.getHistoryItemList().observe(this, new Observer<List<HistoryItem>>() {
             @Override
             public void onChanged(List<HistoryItem> historyItems) {
+                Log.d("HistoryActivity", "Data received1: " + historyItems.size() + " items");
                 if (historyItems != null && !historyItems.isEmpty()) {
-                    Log.d("HistoryActivity", "Data received: " + historyItems.size() + " items");
+                    Log.d("HistoryActivity", "Data received2: " + historyItems.size() + " items");
                     historyAdapter = new HistoryAdapter(historyItems);
                     recyclerView.setAdapter(historyAdapter);
                 } else {

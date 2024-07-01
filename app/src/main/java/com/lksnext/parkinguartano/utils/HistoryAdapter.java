@@ -19,6 +19,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     public HistoryAdapter(List<HistoryItem> historyItemList) {
         this.historyItemList = historyItemList;
+        notifyDataSetChanged();
     }
     @NonNull
     @Override
