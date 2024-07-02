@@ -1,8 +1,6 @@
 package com.lksnext.parkinguartano.view.fragment;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,7 +19,6 @@ import androidx.navigation.Navigation;
 
 import com.lksnext.parkinguartano.R;
 import com.lksnext.parkinguartano.domain.Reserva;
-import com.lksnext.parkinguartano.view.activity.HistoryActivity;
 
 public class ParkingFragment extends Fragment {
 
@@ -37,7 +34,7 @@ public class ParkingFragment extends Fragment {
     private Reserva reserva;
 
     public interface OnFragmentIdListener {
-        void onFragmentIdListener(int id);
+        void onFragmentIdListener(int id, String carType);
     }
 
     @Override
@@ -50,9 +47,9 @@ public class ParkingFragment extends Fragment {
         }
     }
 
-    private void sendIdToActivity(int id) {
+    private void sendIdToActivity(int id, String carType) {
         if (mListener != null) {
-            mListener.onFragmentIdListener(id);
+            mListener.onFragmentIdListener(id, carType);
         }
     }
 
@@ -78,7 +75,7 @@ public class ParkingFragment extends Fragment {
         });
 
         updateParkingSpots(carTypeSpinner.getSelectedItem().toString(), root);
-        Toast.makeText(getContext(), "Reserva realizada con éxito", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), "Reserva realizada con éxito", Toast.LENGTH_SHORT).show();
 
         return root;
     }
@@ -126,7 +123,10 @@ public class ParkingFragment extends Fragment {
                         int correctSpotId = spotId + 1;
                         Log.d("ParkingFragmenttt", "Clicked spot ID: " + correctSpotId);
 
-                        sendIdToActivity(correctSpotId);
+                        Spinner carTypeSpinner = getView().findViewById(R.id.carTypeSpinner);
+                        String selectedCarType = carTypeSpinner.getSelectedItem().toString();
+
+                        sendIdToActivity(correctSpotId, selectedCarType);
 
                         NavController navController = Navigation.findNavController(view);
                         Toast.makeText(requireContext(), "Reserva realizada con éxito.", Toast.LENGTH_SHORT).show();

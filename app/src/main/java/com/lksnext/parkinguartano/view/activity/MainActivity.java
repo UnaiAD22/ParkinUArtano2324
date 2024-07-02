@@ -10,6 +10,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.lksnext.parkinguartano.R;
 import com.lksnext.parkinguartano.databinding.ActivityMainBinding;
 import com.lksnext.parkinguartano.domain.Hora;
@@ -17,6 +19,7 @@ import com.lksnext.parkinguartano.domain.Plaza;
 import com.lksnext.parkinguartano.domain.Reserva;
 import com.lksnext.parkinguartano.domain.UserCount;
 import com.lksnext.parkinguartano.domain.Usuario;
+import com.lksnext.parkinguartano.view.fragment.DateFragment;
 import com.lksnext.parkinguartano.view.fragment.HoraFragment;
 import com.lksnext.parkinguartano.view.fragment.MainFragment;
 import com.lksnext.parkinguartano.view.fragment.ParkingChooseFragment;
@@ -27,7 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements
-        MainFragment.OnFragmentDataListener,
+        DateFragment.OnFragmentDataListener,
         HoraFragment.OnFragmentHoraListener,
         ParkingChooseFragment.OnFragmentTypeListener,
         ParkingFragment.OnFragmentIdListener
@@ -97,15 +100,23 @@ public class MainActivity extends AppCompatActivity implements
         createObjectIfReady();
     }
 
-    public void onFragmentIdListener(int id) {
+    public void onFragmentIdListener(int id, String carType) {
         idPlazaSeleccionada = id;
+        tipoVehiculoSeleccionado = carType;
         createObjectIfReady();
     }
 
     private void createObjectIfReady() {
         if (fechaSeleccionada != null && horaSeleccionada != null && tipoVehiculoSeleccionado != null && idPlazaSeleccionada != 0) {
             // Todos los datos están disponibles, crea el objeto
-            Usuario user = UserCount.getUsuario();
+            String name = "";
+            String email = "";
+
+            FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+            if (firebaseUser != null) {
+                email = firebaseUser.getEmail();
+                name = email.substring(0, email.indexOf('@'));
+            }
 
             String[] horas = horaSeleccionada.split(" - ");
             String inicioHora = horas[0];
@@ -142,8 +153,12 @@ public class MainActivity extends AppCompatActivity implements
             Log.d("IDPLAZA", hora.toString());
 
             String idInString = Long.toString(longValue);
+
+            Usuario user = new Usuario(name, email, "");
+
+            Log.d("RESERVACREADAAA", name);
             Reserva reserva = new Reserva(fechaSeleccionada, user.getName(), idInString, plaza, hora);
-            Log.d("RESERVACREADAAA", reserva.toString());
+            Log.d("RESERVACREADAAA", fechaSeleccionada + " " + name + " " + idInString + " " + plaza.toString() + " " + hora.toString());
         }
     }
 }

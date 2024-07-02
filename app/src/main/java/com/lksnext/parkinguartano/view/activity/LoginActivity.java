@@ -42,7 +42,14 @@ public class LoginActivity extends AppCompatActivity {
         binding.loginButton.setOnClickListener(v -> {
             String email = binding.emailText.getText().toString();
             String password = binding.passwordText.getText().toString();
-            loginViewModel.loginUser(email, password);
+            if (email.isEmpty() || password.isEmpty()) {
+                Log.d("LLLLL", "Email o password vacios");
+            } else if (!email.contains("@") && !email.contains(".")) {
+                Log.d("LLLLL", "No es un email valido. Tiene que contener @ y . como minimo");
+            } else {
+                Log.d("LLLLL", "Login correcto");
+                loginViewModel.loginUser(email, password);
+            }
         });
 
         //Acciones a realizar cuando el usuario clica el boton de crear cuenta (se cambia de pantalla)

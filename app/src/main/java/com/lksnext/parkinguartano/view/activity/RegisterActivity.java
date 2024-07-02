@@ -28,10 +28,17 @@ public class RegisterActivity extends AppCompatActivity {
         binding.btnRegister.setOnClickListener( v -> {
             String email = binding.emailText.getText().toString();
             String password = binding.passwordText.getText().toString();
-            System.out.println("Email: " + email + " Password: " + password);
-            registerViewModel.register(email, password);
-            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-            startActivity(intent);
+
+            if (email.isEmpty() || password.isEmpty()) {
+                System.out.println("Email o password vacios");
+            } else if (!email.contains("@") && !email.contains(".")) {
+                System.out.println("No es un email valido. Tiene que contener @ y . como minimo");
+            } else {
+                System.out.println("Email: " + email + " Password: " + password);
+                registerViewModel.register(email, password);
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }

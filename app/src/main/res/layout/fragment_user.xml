@@ -4,20 +4,143 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    tools:context=".view.fragment.UserFragment">
+    android:layout_margin="10dp">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="@string/perfil"
+        android:textColor="@color/purple_700"
         android:textSize="25sp"
-        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/purple_700" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fondo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <ImageView
+        android:id="@+id/userIcon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_user"
+        app:layout_constraintBottom_toBottomOf="@id/photo"
+        app:layout_constraintEnd_toEndOf="@id/photo"
+        app:layout_constraintStart_toStartOf="@id/photo"
+        app:layout_constraintTop_toTopOf="@id/photo" />
+
+    <ImageView
+        android:id="@+id/LogOutIcon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_logout"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="351dp"
+        tools:layout_editor_absoluteY="79dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEditProfile"
+        style="@style/ButtonCustomStyle"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/editar_perfil"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photo" />
+
+    <ImageView
+        android:id="@+id/ic_pencil2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="Icon"
+        android:src="@drawable/ic_pencil"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="325dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/configuracion"
+        style="@style/ButtonCustomStyle"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEditProfile" />
+
+    <ImageView
+        android:id="@+id/ic_settings"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="Icon"
+        android:src="@drawable/ic_settings"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="424dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPrivacySecurity"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/privacidad_y_seguridad"
+        style="@style/ButtonCustomStyle"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSettings" />
+
+    <ImageView
+        android:id="@+id/ic_global"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="Icon"
+        android:src="@drawable/ic_global"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="525dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDeleteAccount"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/eliminar_cuenta"
+        style="@style/ButtonCustomStyle"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnPrivacySecurity" />
+
+    <ImageView
+        android:id="@+id/ic_delete"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="Icon"
+        android:src="@drawable/ic_delete"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="629dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -92,7 +92,7 @@ public class HoraFragment extends Fragment {
 
                 NavController navController = Navigation.findNavController(view);
                 Log.d("NEXTBUTTON___", "Next button clicked");
-                navController.navigate(R.id.parkingChooseFragment);
+                navController.navigate(R.id.parkingFragment);
             }
         });
     }

@@ -19,8 +19,10 @@ public class HistoryViewModel extends ViewModel {
 
     public void loadHistoryItems() {
         List<HistoryItem> items = new ArrayList<>();
-        items.add(new HistoryItem(R.drawable.ic_user, "Usuario 1", R.drawable.ic_calendar, "01/07/2024", R.drawable.ic_clock, "11:00 - 23:30", R.drawable.ic_car_normal, "Normal", R.drawable.ic_location, "1"));
-        items.add(new HistoryItem(R.drawable.ic_user, "Usuario 2", R.drawable.ic_calendar, "29/06/2024", R.drawable.ic_clock, "11:00 - 23:30", R.drawable.ic_car_normal, "Normal", R.drawable.ic_location, "105"));
+        items.add(new HistoryItem(R.drawable.ic_user, "Usuario 1", R.drawable.ic_calendar, "01/07/2024", R.drawable.ic_clock, "10:00 - 18:00", R.drawable.ic_car_normal, "Minusválido", R.drawable.ic_location, "1"));
+        items.add(new HistoryItem(R.drawable.ic_user, "Usuario 1", R.drawable.ic_calendar, "29/06/2022", R.drawable.ic_clock, "23:00 - 1:45", R.drawable.ic_car_normal, "Eléctrico", R.drawable.ic_location, "105"));
+        items.add(new HistoryItem(R.drawable.ic_user, "Usuario 1", R.drawable.ic_calendar, "01/07/2020", R.drawable.ic_clock, "11:00 - 23:30", R.drawable.ic_car_normal, "Eléctrico", R.drawable.ic_location, "1"));
+        items.add(new HistoryItem(R.drawable.ic_user, "Usuario 1", R.drawable.ic_calendar, "29/06/2017", R.drawable.ic_clock, "11:00 - 23:30", R.drawable.ic_car_normal, "Normal", R.drawable.ic_location, "105"));
 
         System.out.println(items.size());
 

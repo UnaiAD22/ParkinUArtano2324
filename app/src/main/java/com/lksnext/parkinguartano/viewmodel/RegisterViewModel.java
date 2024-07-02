@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.lksnext.parkinguartano.data.DataRepository;
 import com.lksnext.parkinguartano.domain.Callback;
 import com.lksnext.parkinguartano.view.activity.RegisterActivity;
@@ -20,6 +21,8 @@ public class RegisterViewModel extends ViewModel {
     //Mirar si se ha registrado bien
     public MutableLiveData<String> registerMutable = new MutableLiveData<>();
 
+    FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
     //Lo mismo pero para errores
 
     public void register (String email, String password) {
@@ -27,9 +30,14 @@ public class RegisterViewModel extends ViewModel {
 
         DataRepository.getInstance().register(email, password, new Callback() {
             //En caso de que el login sea correcto, que se hace
+            String name;
             @Override
             public void onSuccess() {
-                registerMutable.setValue("Usuario registrado correctamente: " + email + "\t" + password);
+
+                if (firebaseUser != null) {
+                    name = firebaseUser.getDisplayName();
+                }
+                registerMutable.setValue("Usuario registrado correctamente: " + name + "\t" + email + "\t" + password);
                 logged.setValue(Boolean.TRUE);
             }
 

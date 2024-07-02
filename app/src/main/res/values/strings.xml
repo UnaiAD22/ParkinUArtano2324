@@ -7,6 +7,11 @@
 
     <string name="perfil">Perfil de usuario</string>
 
+    <string name="editar_perfil">Editar perfil</string>
+    <string name="configuracion">Configuración</string>
+    <string name="privacidad_y_seguridad">Privacidad y seguridad</string>
+    <string name="eliminar_cuenta">Eliminar cuenta</string>
+
     <string name="selectHour">Selección de horas</string>
     <string name="selectHourI">Hora inicial</string>
     <string name="selectHourF">Hora finalizada</string>
@@ -24,6 +29,7 @@
     <string name="selectTypeParking">Selecciona el tipo del coche</string>
 
     <string name="fragment_main">Main</string>
+    <string name="fragment_date">Date</string>
     <string name="fragment_history">History</string>
     <string name="fragment_user">User</string>
     <string name="fragment_hour">Seleccionar horas</string>
