@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             if (email.isEmpty() || password.isEmpty()) {
                 System.out.println("Email o password vacios");
-            } else if (!email.contains("@") && !email.contains(".")) {
+            } else if (!email.contains("@gmail.com")) {
                 System.out.println("No es un email valido. Tiene que contener @ y . como minimo");
             } else {
                 System.out.println("Email: " + email + " Password: " + password);

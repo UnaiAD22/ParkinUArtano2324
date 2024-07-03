@@ -35,16 +35,6 @@
             app:destination="@id/parkingFragment" />
     </fragment>
 
-    <!--<fragment
-        android:id="@+id/parkingChooseFragment"
-        android:name="com.lksnext.parkinguartano.view.fragment.ParkingChooseFragment"
-        android:label="@string/fragment_parking_type_choose"
-        tools:layout="@layout/fragment_parking_choose" >
-        <action
-            android:id="@+id/parkingChoose_to_parking"
-            app:destination="@id/parkingFragment" />
-    </fragment>-->
-
     <fragment
         android:id="@+id/parkingFragment"
         android:name="com.lksnext.parkinguartano.view.fragment.ParkingFragment"
@@ -61,5 +51,14 @@
         android:id="@+id/userFragment"
         android:name="com.lksnext.parkinguartano.view.fragment.UserFragment"
         android:label="@string/fragment_user"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.lksnext.parkinguartano.view.activity.LoginActivity">
+    </activity>
 </navigation>

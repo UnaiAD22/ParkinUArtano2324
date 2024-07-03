@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
             String password = binding.passwordText.getText().toString();
             if (email.isEmpty() || password.isEmpty()) {
                 Log.d("LLLLL", "Email o password vacios");
-            } else if (!email.contains("@") && !email.contains(".")) {
+            } else if (!email.contains("@gmail.com")) {
                 Log.d("LLLLL", "No es un email valido. Tiene que contener @ y . como minimo");
             } else {
                 Log.d("LLLLL", "Login correcto");
